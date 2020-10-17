@@ -1,0 +1,48 @@
+
+<div class="card-container">
+
+  <mat-card class="card">
+
+    <h2 style="text-align:center">
+      User Form
+    </h2><hr/>
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit();">
+
+      <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+        <mat-label>Name</mat-label>
+        <input type="text" matInput formControlName="name" placeholder="Enter name" required>
+        <mat-error *ngIf="f.name.hasError('required') && userForm.controls.name.touched">
+            Name is required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+        <mat-label>Age</mat-label>
+        <input type="number" matInput formControlName="age" placeholder="Enter age (in years)">
+        <mat-error *ngIf="f.age.hasError('required') && userForm.controls.age.touched">
+            Age is required!
+        </mat-error>
+        <mat-error *ngIf="f.age.hasError('max') && userForm.controls.age.touched">
+          Age cannot be greater than 120 years!
+      </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+        <mat-label>Date of Birth</mat-label>
+        <input type="date" matInput formControlName="dob" placeholder="Enter date of birth">
+        <mat-error *ngIf="f.dob.hasError('required') && userForm.controls.dob.touched">
+            Date of birth is required!
+        </mat-error>
+      </mat-form-field>
+
+      <div class="form-field" style="text-align: center; margin-top: 10px;">
+        <button type="submit" mat-raised-button color="primary" [disabled]="userForm.invalid">SUBMIT</button>
+        <button type="button" mat-raised-button color="primary" (click)="userForm.reset()" style="margin-left: 10px;">RESET</button>
+      </div>
+
+    </form>
+
+  </mat-card>
+
+</div>

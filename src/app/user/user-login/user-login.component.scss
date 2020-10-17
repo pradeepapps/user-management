@@ -1,0 +1,19 @@
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to bottom right, #673ab7, #d4c5ee);
+  opacity: 0.9;
+  min-height: 100%;
+}
+
+.card {
+  padding: 40px;
+  width: 300px;
+  background: #efebf7;
+}
+
+.form-field {
+  margin-bottom: 5px;
+  width: 100%;
+}

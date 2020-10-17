@@ -1,0 +1,46 @@
+
+<div class="card-container">
+
+  <mat-card class="card">
+
+    <h2 style="text-align:center">
+      User Login
+    </h2><hr/>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+        <mat-label>Username</mat-label>
+        <input type="text" matInput formControlName="username" placeholder="Username" required>
+        <mat-error *ngIf="f.username.hasError('required') && loginForm.controls.username.touched">
+            Username is required!
+        </mat-error>
+        <mat-error *ngIf="f.username.hasError('email') && loginForm.controls.username.touched">
+          Email id is required!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline" floatLabel="always">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password" placeholder="Password">
+        <mat-error *ngIf="f.password.hasError('required') && loginForm.controls.password.touched">
+            Password is required!
+        </mat-error>
+        <mat-error *ngIf="f.password.hasError('minlength') && loginForm.controls.password.touched">
+          Minimum 6 characters password required!
+        </mat-error>
+      </mat-form-field>
+
+      <div class="form-field">
+        <mat-checkbox id="rememberMe" formControlName="rememberMe">Remember me</mat-checkbox>
+      </div>
+
+      <div class="form-field" style="text-align: center;">
+        <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Login</button>
+      </div>
+
+    </form>
+
+  </mat-card>
+
+</div>
